@@ -31,3 +31,9 @@
 - 角色素材
 
   sprite2格式
+
+
+
+#### 官网素材库爬虫使用说明
+
+直接执行python asset-crawl.py 即可
