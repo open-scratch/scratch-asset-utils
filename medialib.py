@@ -42,12 +42,13 @@ print("""
 =========使用说明：==========
 1.将本脚本放在scratch根目录，或配置资源目录的路径
 2.拖入文件或文件夹
+3.回车确认
 
 资源类型说明：
-角色文件：sprite2
-背景文件：jpg
-造型文件：png、svg
-音频文件：wav
+角色文件：.sprite2
+背景文件：.jpg
+造型文件：.png、.svg
+音频文件：.wav
 ===========================
 """)
 
@@ -228,6 +229,8 @@ while True:
                     push.push_sound()
             elif input_type == "4":
                 push.push_sprite()
+            else:
+                push.push()
     else:
         path.replace("\"", "")
         filename_full = os.path.split(path)[1]
