@@ -13,11 +13,9 @@
 
 #### 使用说明
 
-
-
 1. 默认使用本项目自带的素材库，或者配置相关路径参数
 
-2. 执行python medialib.py
+2. 执行python scratch2-asset-process.py
 
 3. 将文件拖入窗口，自动添加本素材，素材名默认为文件名
 
@@ -46,7 +44,7 @@
 
 ### 官网素材库爬虫使用说明
 
-用于爬取scratch官方CDN上的素材库
+用于爬取scratch2和scratch3官方CDN上的素材库
 
 #### 环境说明
 
@@ -57,4 +55,10 @@
 
 #### 使用说明
 
-直接执行python asset-crawl.py 即可
+- 爬取scratch2素材库
+
+直接执行python scratch2-asset-crawl.py 即可
+
+- 爬取scratch3素材库
+
+将最新的索引文件放到scratch3/json_index文件夹中，执行python scratch3-asset-crawl.py 即可
