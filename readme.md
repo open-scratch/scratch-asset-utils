@@ -61,4 +61,5 @@
 
 - 爬取scratch3素材库
 
+因为国外资源下载太慢，爬虫使用了socks代理，如果没有的话可以自行去掉
 将最新的索引文件放到scratch3/json_index文件夹中，执行python scratch3-asset-crawl.py 即可

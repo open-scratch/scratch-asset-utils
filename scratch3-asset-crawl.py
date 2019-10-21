@@ -11,6 +11,10 @@ import re
 pretend = False
 downloaded = set()
 cdn = 'http://cdn.assets.scratch.mit.edu'
+proxies = {
+    'http': 'socks5h://127.0.0.1:10808',
+    'https': 'socks5h://127.0.0.1:10808'
+}
 
 def download_file(url, path):
     if os.path.exists(path):
@@ -19,7 +23,8 @@ def download_file(url, path):
     floder = "/".join(path.split("/")[0:-1])
     if not os.path.exists(floder):
         os.makedirs(floder)
-    res = requests.get(url)
+    print(url)
+    res = requests.get(url,proxies=proxies)
     if path in downloaded:
         return None
     if res.status_code == 200:
@@ -46,14 +51,17 @@ def download_media(json_path):
             res = download_file(media_url % m['md5'], download_path + m['md5'])
             if json_name == "sprites.json":
                 # download sprite
-                with open(download_path + m['md5'], "r") as s:
-                    sprite = json.load(s)
-                    for sound in sprite.get('sounds', []):
-                        download_file(media_url % sound['md5'], download_path + sound['md5'])
-                    for costume in sprite.get('costumes', []):
-                        download_file(media_url % costume['baseLayerMD5'], download_path + costume['baseLayerMD5'])
+                # with open(download_path + m['md5'], "r") as s:
+                #     sprite = json.load(s)
+                sprite = m['json']
+                for sound in sprite.get('sounds', []):
+                    download_file(media_url % sound['md5'], download_path + sound['md5'])
+                for costume in sprite.get('costumes', []):
+                    download_file(media_url % costume['baseLayerMD5'], download_path + costume['baseLayerMD5'])
+                print(m['name'])
 
 
-# download_media("scratch3/json_index/backdrops.json")
+download_media("scratch3/json_index/backdrops.json")
 download_media("scratch3/json_index/costumes.json")
-# download_media("scratch3/json_index/sounds.json")
+download_media("scratch3/json_index/sounds.json")
+download_media("scratch3/json_index/sprites.json")
