@@ -55,9 +55,17 @@ def download_media(json_path):
                 #     sprite = json.load(s)
                 sprite = m['json']
                 for sound in sprite.get('sounds', []):
-                    download_file(media_url % sound['md5'], download_path + sound['md5'])
+                    if "md5" in sound:
+                        md5 = sound['md5']
+                    else:
+                        md5 = sound['md5ext']
+                    download_file(media_url % md5, download_path + md5)
                 for costume in sprite.get('costumes', []):
-                    download_file(media_url % costume['baseLayerMD5'], download_path + costume['baseLayerMD5'])
+                    if "baseLayerMD5" in sound:
+                        md5 = sound['baseLayerMD5']
+                    else:
+                        md5 = sound['md5ext']
+                    download_file(media_url % md5, download_path + md5)
                 print(m['name'])
 
 
