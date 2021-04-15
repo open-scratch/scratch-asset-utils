@@ -6,8 +6,7 @@
 
 - 运行环境 Python 3.x
 
-
-- 依赖Pillow，shutil
+- 依赖Pillow，shutil，pysocks
 
 
 
