@@ -38,7 +38,7 @@
 
   sprite2格式
 
-  ​
+  
 
 
 ### 官网素材库爬虫使用说明
@@ -60,5 +60,9 @@
 
 - 爬取scratch3素材库
 
-因为国外资源下载太慢，爬虫使用了socks代理，如果没有的话可以自行去掉
-将最新的索引文件放到scratch3/json_index文件夹中，执行python scratch3-asset-crawl.py 即可
+因为国外资源下载太慢，爬虫使用了socks代理，需要替换成自己的代理
+将最新的索引文件放到scratch3/json_index文件夹中，运行scratch3-asset-crawl.py 即可
+
+- 上传至云存储
+
+以七牛云QSunSync客户端为例，配置AK和SK，选择scratch3文件夹，选择目标空间，点击开始同步即可
